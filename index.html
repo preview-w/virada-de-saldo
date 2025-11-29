@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Método Virada de Saldo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+  <style>
+    :root {
+      --primary: #2FC3F9;
+    }
+    html, body {
+      background: #0d1117;
+      height: 100%;
+      color: #fff;
+    }
+    .has-bg-dark {
+      background: #0d1117;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .video-blur {
+      filter: blur(12px);
+      transition: filter 0.4s ease;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      backdrop-filter: blur(2px);
+      border-radius: 8px;
+    }
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <section class="section has-bg-dark">
+    <div class="container has-text-centered">
+      <h1 class="title" style="color: var(--primary)">Método Virada de Saldo</h1>
+
+      <div class="video-wrapper">
+        <video id="video" class="video-blur" width="100%" preload="auto" muted>
+          <source src="video.mp4" type="video/mp4" />
+        </video>
+
+        <div id="overlay" class="overlay">
+          Clique para ativar o som
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de passos -->
+    <div class="container mt-6">
+      <div class="columns is-multiline is-centered">
+
+        <div class="column is-4">
+          <div class="card" style="background:#111827; color:white; border:1px solid var(--primary)">
+            <div class="card-content">
+              <p class="title is-5">📲 Crie sua conta na GanhoWin</p>
+              <p><a href="https://ganhowin.online/" target="_blank" style="color:var(--primary)">https://ganhowin.online/</a></p>
+              <p class="mt-3">💠 Gere um PIX de R$30 e pague normalmente</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="card" style="background:#111827; color:white; border:1px solid var(--primary)">
+            <div class="card-content">
+              <p class="title is-5">1️⃣ Após o pagamento ser confirmado</p>
+              <p>⚙️ Vá em configurações</p>
+              <p>🇺🇸 Mude o servidor para EUA</p>
+              <p>🫴 Colete o bônus</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="card" style="background:#111827; color:white; border:1px solid var(--primary)">
+            <div class="card-content">
+              <p class="title is-5">2️⃣ Em seguida</p>
+              <p>Volte para Português e BRL (R$)</p>
+              <p class="mt-3">✔️ Seu saldo irá fixar em <strong>R$ 969,00</strong></p>
+              <p>🤑 APROVEITE ENQUANTO FUNCIONA!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    const video = document.getElementById("video");
+    const overlay = document.getElementById("overlay");
+
+    // autoplay inicial sem som (muted já está)
+    window.addEventListener("load", () => {
+      video.play();
+    });
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      video.classList.remove("video-blur");
+      video.muted = false;
+      video.currentTime = 0; // reinicia o vídeo
+      video.play();
+    });
+  </script>
+</body>
+</html>
